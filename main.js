@@ -210,7 +210,7 @@ async function readToken() {
     } else if (response.verified == "admin") {
         ids.verified.hidden = false;
         ids.verified.innerHTML = "Admin";
-        ids.verified.style = "background:goldenrod;color:black;";
+        ids.verified.style = "background:goldenrod;color:black;font-weight:800;border-radius:8px;padding:3px;";
         ids.verified.title = "Your account is ran as an admin on Batcher!";
     } else {
       ids.verified.hidden = true;
