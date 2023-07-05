@@ -187,14 +187,16 @@ async function readToken() {
       username = response.name;
       verified = response.verified;
       }
-    if (response.verified == "true") {
+    
+    htmlconsole.warn("[" + sname + "] Token validated.");
+    htmlconsole.warn("[" + sname + "] Logged in as " + response.name);
+    setInterval(function(){
+      if (response.verified == "true") {
       ids.verified.hidden = false;
     } else {
       ids.verified.hidden = true;
     }
-    htmlconsole.warn("[" + sname + "] Token validated.");
-    htmlconsole.warn("[" + sname + "] Logged in as " + response.name);
-      
+    }, 200);
   }
 } readToken();
 
