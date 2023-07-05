@@ -31,4 +31,6 @@ async function checkPerms() {
   }
 }
 
-checkPerms();
+setTimeout(function(){
+  checkPerms();
+}, 200);
