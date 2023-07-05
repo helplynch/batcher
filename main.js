@@ -6,6 +6,7 @@ const token = storage.getItem("batcher-token")
 var prefix = prompt("Please enter bot prefix:", ".");
 var developerMode = false
 var username = ""
+var verified = ""
 
 const serverURL = 'https://batcherbackend.codingmadnessyt.repl.co/'
 async function request(url, method, body) {
