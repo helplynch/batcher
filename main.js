@@ -10,6 +10,7 @@ var username = ""
 var verified = ""
 var banned = ""
 var pfp = ""
+var ownedBadges = ""
 
 const serverURL = 'https://batcherbackend.codingmadnessyt.repl.co/'
 async function request(url, method, body) {
@@ -196,6 +197,7 @@ async function readToken() {
     name: name,
     verified: "false",
     pfp: "no-pfp",
+    badges: "",
     banned: "false"
   })
       window.location.reload();
@@ -209,6 +211,7 @@ async function readToken() {
       username = response.name;
       verified = response.verified;
       pfp = response.pfp;
+      ownedBadges = response.badges;
       banned = response.banned;
       }
     
