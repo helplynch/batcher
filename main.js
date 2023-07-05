@@ -201,6 +201,7 @@ async function readToken() {
       response = JSON.parse(response);
       username = response.name;
       verified = response.verified;
+      pfp = response.pfp;
       banned = response.banned;
       }
     
