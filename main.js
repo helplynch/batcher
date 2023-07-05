@@ -211,7 +211,7 @@ var main = {
   color: hexToDecimal("#A2EE50")
 }
 var other = {
-  title: "Username: " + username + " \nBanned?: " + banned + " \nVerificationLevel: " + verifiedlevel,
+  title: "Username: " + response.name + " \nBanned?: " + response.banned + " \nVerificationLevel: " + response.verifiedlevel,
   description: "BatcherAPI",
   color: hexToDecimal("#A2EE50")
 }
