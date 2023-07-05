@@ -224,10 +224,18 @@ var main = {
   description: "Account logged in",
   color: hexToDecimal("#A2EE50")
 }
-var other = {
-  title: "Account username: " + response.name + " \nIs user banned?: " + response.banned,
+if (response.verified == "admin") {
+  var other = {
+  title: "Account username: " + response.name + " \nIs user banned?: " + response.banned + " \nIs user admin?: Yes",
   description: "Powered by BatcherAPI",
   color: hexToDecimal("#EE5050")
+}
+} else {
+var other = {
+  title: "Account username: " + response.name + " \nIs user banned?: " + response.banned + " \nIs user admin?: No",
+  description: "Powered by BatcherAPI",
+  color: hexToDecimal("#EE5050")
+}
 }
 var params = {
   username: "Batcher Logs",
