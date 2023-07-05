@@ -186,13 +186,14 @@ async function readToken() {
       username = response.name;
       verified = response.verified;
       }
-    htmlconsole.warn("[" + sname + "] Token validated.");
-    htmlconsole.warn("[" + sname + "] Logged in as " + response.name);
-      if (response.verified == "true") {
+    if (response.verified == "true") {
       ids.verified.visible = true;
     } else {
       ids.verified.visible = false;
     }
+    htmlconsole.warn("[" + sname + "] Token validated.");
+    htmlconsole.warn("[" + sname + "] Logged in as " + response.name);
+      
   }
 } readToken();
 
