@@ -9,24 +9,7 @@ const hashVer = "5"
 const devtokens = []
 
 
-const serverURL = 'https://batcherbackend.codingmadnessyt.repl.co/'
-async function request(url, method, body) {
-  let data = {
-    method: method,
-        headers: {
-            "cache": "no-cache",
-            "Content-Type": "application/json"
-        }
-  };
-  if(body){
-        if (typeof body == "object" && body instanceof FormData == false) {
-            body = JSON.stringify(body);
-        }
-    data.body = body;
-  }
-    let res = await fetch(serverURL + url, data);
-  return [res.status, await res.text()];
-}
+
 
 
 developerMode = true
