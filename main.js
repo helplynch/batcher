@@ -56,7 +56,7 @@ htmlconsole = {
   document.body.insertBefore(newDiv, currentDiv);
   }
 }
-async function sendrequest(dev, req) {
+function sendrequest(dev, req) {
   htmlconsole.warn(`
     [` + name + `] Sending request...
     `)
