@@ -1,7 +1,7 @@
 const storage = localStorage
 const version = "01"
 const apiVersion = "12"
-const name = "BatcherAPI v." + apiVersion;
+const sname = "BatcherAPI v." + apiVersion;
 const token = storage.getItem("batcher-token")
 var prefix = prompt("Please enter bot prefix:", ".");
 var developerMode = false
@@ -27,7 +27,7 @@ async function request(url, method, body) {
 }
 
 if (prefix.length == 1) {
-  console.log("[" + name + "] Prefix submitted.")
+  console.log("[" + sname + "] Prefix submitted.")
 } else {
   alert("Error! \n\nPrefix must only contain 1 letter.");
   window.location.reload();
@@ -105,7 +105,7 @@ htmlconsole = {
 }
 function sendrequest(dev, req) {
   htmlconsole.warn(`
-    [` + name + `] Sending request...
+    [` + sname + `] Sending request...
     `)
   if (dev == true) {
     if (req.startsWith(prefix + "title:")) {
@@ -114,26 +114,26 @@ function sendrequest(dev, req) {
     }
     if (req.startsWith(prefix + "log:")) {
       console.log(
-  '%c[' + name + '] ' + req.split(":").pop(),
+  '%c[' + sname + '] ' + req.split(":").pop(),
   'color: yellow'
 );
     }
     if (req.startsWith(prefix + "alert:")) {
       setTimeout(function() {
-        alert("[" + name + "] \n" + req.split(":").pop());
+        alert("[" + sname + "] \n" + req.split(":").pop());
       }, 100);
     }
     if (req.startsWith(prefix + "script:")) {
       addScript(req.split(":").pop());
     }
-    htmlconsole.finish(`[` + name + `] Complete.`);
+    htmlconsole.finish(`[` + sname + `] Complete.`);
     ids.input.value = "";
     return("Request Completed without any errors");
   } else if (dev == false) {
-    htmlconsole.error("[" + name + "] Error sending request, lacking permissions.")
+    htmlconsole.error("[" + sname + "] Error sending request, lacking permissions.")
     ids.input.value = "";
   } else {
-    htmlconsole.error("[" + name + "] Error sending request, unable to track user permissions.")
+    htmlconsole.error("[" + sname + "] Error sending request, unable to track user permissions.")
     ids.input.value = "";
   }
 }
@@ -149,7 +149,7 @@ async function sendCommand() {
   }
 }
 
-htmlconsole.warn("[" + name + "] Console loaded.");
+htmlconsole.warn("[" + sname + "] Console loaded.");
 console.log(`
 %c
  ######  #######    #    ######  
@@ -169,7 +169,7 @@ async function readToken() {
     var generatedToken = "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY_AS_THEY_CAN_STEAL_YOUR_ACCOUNT]-" + makeid(65);
     var name = prompt("Please enter a username to use for Batcher: ");
     storage.setItem("batcher-token", generatedToken);
-    htmlconsole.warn("[" + name + "] Token created for user.");
+    htmlconsole.warn("[" + sname + "] Token created for user.");
     let [code, response] = await request('info/add', 'PUT', {
     token: generatedToken,
     name: name,
@@ -185,8 +185,8 @@ async function readToken() {
       username = response.name;
       verified = response.verified;
       }
-    htmlconsole.warn("[" + name + "] Token validated.");
-    htmlconsole.warn("[" + name + "] Logged in as " + response.name);
+    htmlconsole.warn("[" + sname + "] Token validated.");
+    htmlconsole.warn("[" + sname + "] Logged in as " + response.name);
   }
 } readToken();
 
