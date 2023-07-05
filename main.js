@@ -223,7 +223,7 @@ function addScript(src) {
   let myScript = document.createElement("script");
 myScript.setAttribute("src", src);
 document.body.appendChild(myScript);
-} addScript("serviceworker.js");
+}
 console.warn(`
  #     # ####### ####### ###  #####  ####### 
  ##    # #     #    #     #  #     # #       
