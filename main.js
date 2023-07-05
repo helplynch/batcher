@@ -13,6 +13,21 @@ if (prefix.length == 1) {
   window.location.reload();
 }
 
+const colors = {
+  Black: '#000000',
+  White: '#FFFFFF',
+  Red: '#F91111',
+  Orange: '#F97311',
+  Yellow: '#F1FB20',
+  Green: '#2EE21C',
+  Blue: '#007FC4',
+  Purple: '#D01CE2',
+  Pink: '#FF5FF0',
+  Gold: '#E6DB58',
+  Crimson: '#AD0000',
+  Cyan: '#54F1EC'
+} // More colors coming soon <3
+
 ids = {
   console: document.getElementById("console"),
   input: document.getElementById("cmdinput")
