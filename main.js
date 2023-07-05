@@ -188,7 +188,8 @@ async function readToken() {
     let [code, response] = await request('info/add', 'PUT', {
     token: generatedToken,
     name: name,
-    verified: "false"
+    verified: "false",
+    banned: "false"
   })
       window.location.reload();
     }
@@ -200,6 +201,7 @@ async function readToken() {
       response = JSON.parse(response);
       username = response.name;
       verified = response.verified;
+      banned = response.banned;
       }
     
     htmlconsole.warn("[" + sname + "] Token validated.");
