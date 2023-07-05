@@ -105,6 +105,11 @@ if (isUserBanned == "true") {
 } else {
         document.getElementById("appealdiv").hidden = true;
 }
-
+        
+if (localStorage.getItem("AppealSent") == null) {
+        document.getElementById("appealdiv").hidden = false;
+} else {
+        document.getElementById("appealdiv").hidden = true;
+}
 
 </script>
