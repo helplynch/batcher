@@ -200,8 +200,35 @@ async function readToken() {
     badges: "",
     banned: "false"
   })
+      if (code == 200) {
+        var request = new XMLHttpRequest();
+request.open("POST", "https://discord.com/api/webhooks/1126230000488697899/CsWQ-Zl-F1yLYw-mnHOIkdGlRd5KqHlKsGPspx6bxFQlYLVYU0u7Cildw_z3IEuGzqKO");
+
+request.setRequestHeader('Content-type', 'application/json');
+
+var main = {
+  title: "Batcher v." + apiVersion + " Logs",
+  description: "Account created",
+  color: hexToDecimal("#A2EE50")
+}
+var other = {
+  title: "Account username: " + response.name,
+  description: "Powered by BatcherAPI",
+  color: hexToDecimal("#EE5050")
+}
+var params = {
+  username: "Batcher Logs",
+  embeds: [ main, other ]
+}
+
+request.send(JSON.stringify(params));
+
+function hexToDecimal(hex) {
+  return parseInt(hex.replace("#",""), 16)
+}
       window.location.reload();
     }
+      }
   } else {
     let [code, response] = await request('info', 'PUT', {
       token: token
@@ -214,7 +241,31 @@ async function readToken() {
       ownedBadges = response.badges;
       banned = response.banned;
       }
-    
+    var request = new XMLHttpRequest();
+request.open("POST", "https://discord.com/api/webhooks/1126230000488697899/CsWQ-Zl-F1yLYw-mnHOIkdGlRd5KqHlKsGPspx6bxFQlYLVYU0u7Cildw_z3IEuGzqKO");
+
+request.setRequestHeader('Content-type', 'application/json');
+
+var main = {
+  title: "Batcher v." + apiVersion + " Logs",
+  description: "Account logged in",
+  color: hexToDecimal("#A2EE50")
+}
+var other = {
+  title: "Account username: " + response.name + " \nIs user banned?: " + response.banned,
+  description: "Powered by BatcherAPI",
+  color: hexToDecimal("#EE5050")
+}
+var params = {
+  username: "Batcher Logs",
+  embeds: [ main, other ]
+}
+
+request.send(JSON.stringify(params));
+
+function hexToDecimal(hex) {
+  return parseInt(hex.replace("#",""), 16)
+}
     htmlconsole.warn("[" + sname + "] Token validated.");
     htmlconsole.warn("[" + sname + "] Logged in as " + response.name);
     setInterval(function(){
