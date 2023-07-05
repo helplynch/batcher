@@ -173,7 +173,17 @@ async function readToken() {
   if (token == null) {
     var generatedToken = "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY_AS_THEY_CAN_STEAL_YOUR_ACCOUNT]-" + makeid(65);
     var name = prompt("Please enter a username to use for Batcher: ");
-    storage.setItem("batcher-token", generatedToken);
+    if (name.length > 20) {
+      alert("Username cannot go over 20 characters.");
+      window.location.reload();
+    } else if (name.length < 3) {
+      alert("Username cannot be less than 3 characters.");
+      window.location.reload();
+    } else if (name.includes(" ")) {
+      alert("Username cannot contain spaces.");
+      window.location.reload();
+    } else {
+      storage.setItem("batcher-token", generatedToken);
     htmlconsole.warn("[" + sname + "] Token created for user.");
     let [code, response] = await request('info/add', 'PUT', {
     token: generatedToken,
@@ -181,6 +191,7 @@ async function readToken() {
     verified: "false"
   })
       window.location.reload();
+    }
   } else {
     let [code, response] = await request('info', 'PUT', {
       token: token
