@@ -13,6 +13,18 @@ if (prefix.length == 1) {
   window.location.reload();
 }
 
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
 const colors = {
   Black: '#000000',
   White: '#FFFFFF',
@@ -134,7 +146,7 @@ DO NOT SHARE YOUR USERTOKEN WITH ANYBODY NO MATTER WHAT. IT IS YOUR UNIQUE IDENT
 'color: red')
 async function readToken() {
   if (token == null) {
-    storage.setItem("batcher-token", "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY]-batc" + Math.floor(Math.random(1222333444555666) * 999999999999998));
+    storage.setItem("batcher-token", "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY_AS_THEY_CAN_STEAL_YOUR_ACCOUNT]-batc" + makeid(45);
     htmlconsole.warn("[" + name + "] Token created for user.");
   } else {
     htmlconsole.warn("[" + name + "] Token validated.");
