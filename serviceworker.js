@@ -1,5 +1,6 @@
 const serviceVer = "2"
 const hashVer = "5"
+const isUserBanned = banned
 
 //      _   _   _   _   _   _  
 //     / \ / \ / \ / \ / \ / \ 
