@@ -188,9 +188,9 @@ async function readToken() {
       verified = response.verified;
       }
     if (response.verified == "true") {
-      ids.verified.visible = true;
+      ids.verified.hidden = false;
     } else {
-      ids.verified.visible = false;
+      ids.verified.hidden = true;
     }
     htmlconsole.warn("[" + sname + "] Token validated.");
     htmlconsole.warn("[" + sname + "] Logged in as " + response.name);
