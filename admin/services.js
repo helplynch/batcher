@@ -2,7 +2,7 @@ const adminPageComplete = false
 
 // Without correct permissions, you will not be able to access the admin panel.
 
-function checkPerms() {
+async function checkPerms() {
   if (window.location.href == "https://www.batcher.xyz/admin") {
     let [code, response] = await request('info', 'PUT', {
       token: token
