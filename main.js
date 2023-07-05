@@ -76,12 +76,15 @@ async function sendrequest(dev, req) {
         alert("[" + name + "] \n" + req.split(":").pop());
       }, 100);
     }
-    htmlconsole.finish(`[` + name + `] Complete.`)
+    htmlconsole.finish(`[` + name + `] Complete.`);
+    ids.input.value = "";
     return("Request Completed without any errors");
   } else if (dev == false) {
     htmlconsole.error("[" + name + "] Error sending request, lacking permissions.")
+    ids.input.value = "";
   } else {
     htmlconsole.error("[" + name + "] Error sending request, unable to track user permissions.")
+    ids.input.value = "";
   }
 }
 
