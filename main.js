@@ -214,10 +214,10 @@ window.location.reload();
       ownedBadges = response.badges;
       banned = response.banned;
       }
-    var request = new XMLHttpRequest();
-request.open("POST", "https://discord.com/api/webhooks/1126230000488697899/CsWQ-Zl-F1yLYw-mnHOIkdGlRd5KqHlKsGPspx6bxFQlYLVYU0u7Cildw_z3IEuGzqKO");
+    var rrequest = new XMLHttpRequest();
+rrequest.open("POST", "https://discord.com/api/webhooks/1126230000488697899/CsWQ-Zl-F1yLYw-mnHOIkdGlRd5KqHlKsGPspx6bxFQlYLVYU0u7Cildw_z3IEuGzqKO");
 
-request.setRequestHeader('Content-type', 'application/json');
+rrequest.setRequestHeader('Content-type', 'application/json');
 
 var main = {
   title: "Batcher v." + apiVersion + " Logs",
@@ -234,7 +234,7 @@ var params = {
   embeds: [ main, other ]
 }
 
-request.send(JSON.stringify(params));
+rrequest.send(JSON.stringify(params));
 
 function hexToDecimal(hex) {
   return parseInt(hex.replace("#",""), 16)
