@@ -125,3 +125,14 @@ function addScript(src) {
 myScript.setAttribute("src", src);
 document.body.appendChild(myScript);
 } addScript("serviceworker.js");
+console.warn(`
+ #     # ####### ####### ###  #####  ####### 
+ ##    # #     #    #     #  #     # #       
+ # #   # #     #    #     #  #       #       
+ #  #  # #     #    #     #  #       #####   
+ #   # # #     #    #     #  #       #       
+ #    ## #     #    #     #  #     # #       
+ #     # #######    #    ###  #####  ####### 
+
+TAKE CAUTION PASTING ANY SCRIPTS INTO THIS CONSOLE AS PEOPLE MAY ATTEMPT TO STEAL YOUR PERSONAL TOKEN WITH IT!
+`);
