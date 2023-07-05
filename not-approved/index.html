@@ -134,12 +134,6 @@ async function getStart() {
                 }
         }
 }
-
-if (isUserBanned == "true") {
-        document.getElementById("appealdiv").hidden = false;
-} else {
-        document.getElementById("appealdiv").hidden = true;
-}
         
 if (localStorage.getItem("AppealSent") == null) {
         document.getElementById("appealdiv").hidden = false;
