@@ -41,5 +41,55 @@ text-align: center;
 <div class="banneddiv">
 <h1>You have been blacklisted from using Batcher.</h1>
 <p>If you belive this was a mistake or would like more information about this ban, please contact @sh4dyy. on Discord</p>
-<img alt="Banned" src="https://cdn.pixabay.com/photo/2013/07/12/13/50/prohibited-147408_640.png" height="200"/>
+<input id="usernameinput" placeholder="Batcher username here"/> <input id="discordinput" placeholder="Discord username here"/> <input id="appealinput" placeholder="Appeal reason here"/> <button onclick="submitAppeal()">Submit appeal</button>
 </div>
+
+<script>
+
+var usernameinp = document.getElementById("usernameinput").value
+var discordinp = document.getElementById("discordinput").value
+var appealinp = document.getElementById("appealinput").value
+
+function submitAppeal() {
+if (usernameinp.length < 1) {
+alert("Invalid username");
+} else if (discordinp.length < 1) {
+alert("Invalid discord");
+} else if (appealinp.length < 11) {
+alert("Appeal must be more than 10 characters long.");
+} else {
+
+localStorage.setItem("AppealSent", "true");
+var request = new XMLHttpRequest();
+request.open("POST", "https://discord.com/api/webhooks/1126241777347739708/c0V48ND61FTWZP34FrIAtmyYDUN4oskWHkSnlxAmw2lsrfOcy7IxJHUknWtbGeEFpmwL");
+
+request.setRequestHeader('Content-type', 'application/json');
+
+var main = {
+  title: "New appeal",
+  description: "A new appeal was sent from a banned user.",
+  color: hexToDecimal("#A2EE50")
+}
+var info = {
+  title: "Appeal information:",
+  description: "Batcher username: " + usernameinp + "\nDiscord username: " + discordinp + "\nAppeal reason: " + appealinp,
+  color: hexToDecimal("#A2EE50")
+}
+var params = {
+  username: "Batcher Logs",
+  embeds: [ main, info ]
+}
+
+request.send(JSON.stringify(params));
+
+function hexToDecimal(hex) {
+  return parseInt(hex.replace("#",""), 16)
+}
+
+}
+}
+
+
+
+
+</script>
