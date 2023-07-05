@@ -1,3 +1,5 @@
+console.log("Starting main.js");
+
 const storage = localStorage
 const version = "01"
 const apiVersion = "12"
