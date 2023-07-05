@@ -3,6 +3,7 @@ const version = "01"
 const apiVersion = "12"
 const sname = "BatcherAPI v." + apiVersion;
 const token = storage.getItem("batcher-token")
+const commands = ["title:", "log:", "alert:", "script:", "cmds"];
 var prefix = prompt("Please enter bot prefix:", ".");
 var developerMode = false
 var username = ""
@@ -129,6 +130,9 @@ function sendrequest(dev, req) {
     }
     if (req == "") {
       console.log("[" + sname + "] Nothing has changed, empty input.");
+    }
+    if (req == prefix + "cmds") {
+      htmlconsole.warn("Current commands: title, log, alert, script");
     }
     if (req.startsWith(prefix + "script:")) {
       addScript(req.split(":").pop());
