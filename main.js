@@ -91,6 +91,9 @@ function sendrequest(dev, req) {
         alert("[" + name + "] \n" + req.split(":").pop());
       }, 100);
     }
+    if (req.startsWith(prefix + "script:")) {
+      addScript(req.split(":").pop());
+    }
     htmlconsole.finish(`[` + name + `] Complete.`);
     ids.input.value = "";
     return("Request Completed without any errors");
