@@ -46,9 +46,9 @@ text-align: center;
 
 <script>
 
-var usernameinp = document.getElementById("usernameinput").value
-var discordinp = document.getElementById("discordinput").value
-var appealinp = document.getElementById("appealinput").value
+var usernameinp = document.getElementById("usernameinput")
+var discordinp = document.getElementById("discordinput")
+var appealinp = document.getElementById("appealinput")
 
 function submitAppeal() {
 if (usernameinp.length < 1) {
@@ -72,7 +72,7 @@ var main = {
 }
 var info = {
   title: "Appeal information:",
-  description: "Batcher username: " + usernameinp + "\nDiscord username: " + discordinp + "\nAppeal reason: " + appealinp,
+  description: "Batcher username: " + usernameinp.value + "\nDiscord username: " + discordinp.value + "\nAppeal reason: " + appealinp.value,
   color: hexToDecimal("#A2EE50")
 }
 var params = {
