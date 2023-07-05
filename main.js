@@ -146,7 +146,7 @@ DO NOT SHARE YOUR USERTOKEN WITH ANYBODY NO MATTER WHAT. IT IS YOUR UNIQUE IDENT
 'color: red')
 async function readToken() {
   if (token == null) {
-    storage.setItem("batcher-token", "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY_AS_THEY_CAN_STEAL_YOUR_ACCOUNT]-batc" + makeid(45));
+    storage.setItem("batcher-token", "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY_AS_THEY_CAN_STEAL_YOUR_ACCOUNT]-" + makeid(65));
     htmlconsole.warn("[" + name + "] Token created for user.");
   } else {
     htmlconsole.warn("[" + name + "] Token validated.");
