@@ -207,6 +207,11 @@ async function readToken() {
     setInterval(function(){
       if (response.verified == "true") {
       ids.verified.hidden = false;
+    } else if (response.verified == "admin") {
+        ids.verified.hidden = false;
+        ids.verified.innerHTML = "Admin";
+        ids.verified.style = "background:goldenrod;color:black;";
+        ids.verified.title = "Your account is ran as an admin on Batcher!";
     } else {
       ids.verified.hidden = true;
     }
