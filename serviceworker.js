@@ -11,5 +11,4 @@ const devtokens = []
 
 developerMode = true
 
-
-
+console.log("serviceworker.js is running.");
