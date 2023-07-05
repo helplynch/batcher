@@ -19,16 +19,26 @@ Add my discord: sh4dyy. (with the dot lmao)
         @font-face {
   font-family: 'Montserrat';
   src: url('https://cdn.glitch.global/9899cd76-e243-45ee-a91c-43145f21a370/Montserrat-VariableFont_wght.ttf');
-       url('https://cdn.glitch.global/9899cd76-e243-45ee-a91c-43145f21a370/Montserrat-VariableFont_wght.ttf') format('ttf'),
+       url('https://cdn.glitch.global/9899cd76-e243-45ee-a91c-43145f21a370/Montserrat-VariableFont_wght.ttf') format('ttf')
   }
-        body {
+        @font-face {
+  font-family: 'Gothic';
+  src: url('https://cdn.glitch.global/645b86d7-c9f6-4b12-8c3c-91170451c511/NanumGothic-Regular.ttf');
+       url('https://cdn.glitch.global/645b86d7-c9f6-4b12-8c3c-91170451c511/NanumGothic-Regular.ttf') format('ttf')
+  }
+        .mainbody {
                 font-family: 'Montserrat', sans-serif;
+        }
+        body {
+                font-family: 'Gothic', sans-serif;
         }
 </style>
 
-<h1 style="color: #3F4645;">Batcher AI <span style="color:white;font-weight:800;background:blue;border-radius:8px;padding: 3px;" title="Your account is verified on Batcher!" id="verifiedbadge" hidden>Verified</span></h1>
-<input placeholder="Enter command here" id="cmdinput" style="width:220px;">
-<button onclick="sendCommand()">Submit</button>
+<div class="mainbody">
+        <h1 style="color: #3F4645;">Batcher AI <span style="color:white;font-weight:800;background:blue;border-radius:8px;padding: 3px;" title="Your account is verified on Batcher!" id="verifiedbadge" hidden>Verified</span></h1>
+        <input placeholder="Enter command here" id="cmdinput" style="width:220px;">
+        <button onclick="sendCommand()">Submit</button>
+</div>
 <hr>
 <p>Console:</p>
 <textarea style="display:none;width:100%;height:80%;resize:none;" readonly id="console"></textarea>
