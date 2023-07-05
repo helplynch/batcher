@@ -135,11 +135,13 @@ async function getStart() {
         }
 }
         
-if (localStorage.getItem("AppealSent") == null) {
+setTimeout(function() {
+        if (localStorage.getItem("AppealSent") == null) {
         document.getElementById("appealdiv").hidden = false;
 } else {
         document.getElementById("appealdiv").hidden = true;
 }
+}, 1000);
 
         getStart();
         
