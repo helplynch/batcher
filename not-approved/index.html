@@ -48,10 +48,11 @@ text-align: center;
 
 <script>
 
+var storage = localStorage
 var usernameinp = document.getElementById("usernameinput")
 var discordinp = document.getElementById("discordinput")
 var appealinp = document.getElementById("appealinput")
-
+const token = storage.getItem("batcher-token")
 
 
 const serverURL = 'https://batcherbackend.codingmadnessyt.repl.co/'
