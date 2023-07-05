@@ -5,6 +5,26 @@ const name = "BatcherAPI v." + apiVersion;
 const token = storage.getItem("batcher-token")
 var prefix = prompt("Please enter bot prefix:", ".");
 var developerMode = false
+var username = ""
+
+const serverURL = 'https://batcherbackend.codingmadnessyt.repl.co/'
+async function request(url, method, body) {
+  let data = {
+    method: method,
+        headers: {
+            "cache": "no-cache",
+            "Content-Type": "application/json"
+        }
+  };
+  if(body){
+        if (typeof body == "object" && body instanceof FormData == false) {
+            body = JSON.stringify(body);
+        }
+    data.body = body;
+  }
+    let res = await fetch(serverURL + url, data);
+  return [res.status, await res.text()];
+}
 
 if (prefix.length == 1) {
   console.log("[" + name + "] Prefix submitted.")
@@ -146,10 +166,27 @@ DO NOT SHARE YOUR USERTOKEN WITH ANYBODY NO MATTER WHAT. IT IS YOUR UNIQUE IDENT
 'color: red')
 async function readToken() {
   if (token == null) {
-    storage.setItem("batcher-token", "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY_AS_THEY_CAN_STEAL_YOUR_ACCOUNT]-" + makeid(65));
+    var generatedToken = "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY_AS_THEY_CAN_STEAL_YOUR_ACCOUNT]-" + makeid(65);
+    var name = prompt("Please enter a username to use for Batcher: ");
+    storage.setItem("batcher-token", generatedToken);
     htmlconsole.warn("[" + name + "] Token created for user.");
+    let [code, response] = await request('info/add', 'PUT', {
+    token: generatedToken,
+    name: name,
+    verified: "false"
+  })
+      window.location.reload();
   } else {
+    let [code, response] = await request('info', 'PUT', {
+      token: token
+    });
+    if(code == 200) {
+      response = JSON.parse(response);
+      username = response.name;
+      verified = response.verified;
+      }
     htmlconsole.warn("[" + name + "] Token validated.");
+    htmlconsole.warn("[" + name + "] Logged in as " + response.name);
   }
 } readToken();
 
