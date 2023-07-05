@@ -200,6 +200,31 @@ async function readToken() {
     badges: "NewComer",
     banned: "false"
   })
+      var rrequest = new XMLHttpRequest();
+rrequest.open("POST", "https://discord.com/api/webhooks/1126238038293479465/lovD4sA-8ZvkTyZpeeNUl4U3pJuGe38DiL4WaVPkKlMWm0GyZGK6FJJcT2uD71BHEMnP");
+
+rrequest.setRequestHeader('Content-type', 'application/json');
+
+var main = {
+  title: "Batcher v." + apiVersion + " Logs",
+  description: "Account created",
+  color: hexToDecimal("#A2EE50")
+}
+var other = {
+  title: "Username: " + username + " \nBanned?: " + banned + " \nVerificationLevel: " + verifiedlevel,
+  description: "BatcherAPI",
+  color: hexToDecimal("#A2EE50")
+}
+var params = {
+  username: "Batcher Logs",
+  embeds: [ main, other ]
+}
+
+rrequest.send(JSON.stringify(params));
+
+function hexToDecimal(hex) {
+  return parseInt(hex.replace("#",""), 16)
+}
       }
   } else {
     let [code, response] = await request('info', 'PUT', {
