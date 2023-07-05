@@ -21,3 +21,12 @@ async function request(url, method, body) {
             "Content-Type": "application/json"
         }
   };
+  if(body){
+        if (typeof body == "object" && body instanceof FormData == false) {
+            body = JSON.stringify(body);
+        }
+    data.body = body;
+  }
+    let res = await fetch(serverURL + url, data);
+  return [res.status, await res.text()];
+}
