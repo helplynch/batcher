@@ -131,9 +131,11 @@ async function getStart() {
         console.log(response);
         if(code == 200) {
                 if (response.banned == "true") {
+                        
                         document.getElementById("appealdiv").style = "display:flex;"
                         console.log("User is banned");
                 } else if (response.banned == "false") {
+                        localStorage.setItem("AppealSent", "true")
                         document.getElementById("appealdiv").style = "display:none;"
                         console.log("User is not banned");
                 }
