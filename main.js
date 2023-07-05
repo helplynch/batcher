@@ -7,6 +7,8 @@ var prefix = prompt("Please enter bot prefix:", ".");
 var developerMode = false
 var username = ""
 var verified = ""
+var banned = ""
+var pfp = ""
 
 const serverURL = 'https://batcherbackend.codingmadnessyt.repl.co/'
 async function request(url, method, body) {
@@ -189,6 +191,7 @@ async function readToken() {
     token: generatedToken,
     name: name,
     verified: "false",
+    pfp: "no-pfp",
     banned: "false"
   })
       window.location.reload();
