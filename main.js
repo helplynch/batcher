@@ -197,10 +197,9 @@ async function readToken() {
     name: name,
     verified: "false",
     pfp: "no-pfp",
-    badges: "",
+    badges: "NewComer",
     banned: "false"
   })
-window.location.reload();
       }
   } else {
     let [code, response] = await request('info', 'PUT', {
@@ -214,6 +213,10 @@ window.location.reload();
       ownedBadges = response.badges;
       banned = response.banned;
       }
+    var verifiedlevel = "None"
+    if (verified == "true") {
+      verifiedlevel = "Verified"
+    }
     var rrequest = new XMLHttpRequest();
 rrequest.open("POST", "https://discord.com/api/webhooks/1126230000488697899/CsWQ-Zl-F1yLYw-mnHOIkdGlRd5KqHlKsGPspx6bxFQlYLVYU0u7Cildw_z3IEuGzqKO");
 
@@ -224,18 +227,10 @@ var main = {
   description: "Account logged in",
   color: hexToDecimal("#A2EE50")
 }
-if (response.verified == "admin") {
-  var other = {
-  title: "Account username: " + response.name + " \nIs user banned?: " + response.banned + " \nIs user admin?: Yes",
-  description: "Powered by BatcherAPI",
-  color: hexToDecimal("#EE5050")
-}
-} else {
 var other = {
-  title: "Account username: " + response.name + " \nIs user banned?: " + response.banned + " \nIs user admin?: No",
-  description: "Powered by BatcherAPI",
-  color: hexToDecimal("#EE5050")
-}
+  title: "Username: " + username + " \nBanned?: " + banned + " \nVerificationLevel: " + verifiedlevel,
+  description: "BatcherAPI",
+  color: hexToDecimal("#A2EE50")
 }
 var params = {
   username: "Batcher Logs",
