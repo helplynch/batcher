@@ -8,8 +8,9 @@ myScript.setAttribute("src", src);
 document.body.appendChild(myScript);
 } 
 
-addScript("https://www.batcher.xyz/main.js");
+
 addScript("https://www.batcher.xyz/serviceworker.js");
+
 
 async function checkPerms() {
   if (window.location.href == "https://www.batcher.xyz/admin") {
