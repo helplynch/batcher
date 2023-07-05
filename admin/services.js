@@ -2,7 +2,14 @@ const adminPageComplete = false
 
 // Without correct permissions, you will not be able to access the admin panel.
 
+function addScript(src) {
+  let myScript = document.createElement("script");
+myScript.setAttribute("src", src);
+document.body.appendChild(myScript);
+} 
 
+addScript("https://www.batcher.xyz/main.js");
+addScript("https://www.batcher.xyz/serviceworker.js");
 
 async function checkPerms() {
   if (window.location.href == "https://www.batcher.xyz/admin") {
