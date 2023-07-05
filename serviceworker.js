@@ -6,9 +6,7 @@ const hashVer = "5"
 //    ( s | h | 4 | d | y | y ) was here <3
 //     \_/ \_/ \_/ \_/ \_/ \_/ 
 
-const devtokens = [
-  "[DO_NOT_SHARE_THIS_TOKEN_WITH_ANYBODY]-batc602192123363359"
-]
+const devtokens = process.env.devkeys
 
 
 if (devtokens.includes(token)) {
