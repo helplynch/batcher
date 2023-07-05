@@ -9,7 +9,9 @@ const hashVer = "5"
 const devtokens = []
 
 
-
+if (window.location.href.includes(".vercel.app")) {
+  window.location.href = "https://batcher.xyz";
+}
 
 
 developerMode = true
