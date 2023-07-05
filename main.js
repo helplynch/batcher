@@ -225,6 +225,9 @@ async function readToken() {
     } else {
       ids.verified.hidden = true;
     }
+      if (response.banned == "true") {
+        window.location.href = "/not-approved";
+      }
     }, 200);
   }
 } readToken();
