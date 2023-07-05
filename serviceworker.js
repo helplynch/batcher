@@ -10,3 +10,14 @@ const devtokens = []
 
 
 developerMode = true
+
+
+const serverURL = 'https://batcherbackend.codingmadnessyt.repl.co/'
+async function request(url, method, body) {
+  let data = {
+    method: method,
+        headers: {
+            "cache": "no-cache",
+            "Content-Type": "application/json"
+        }
+  };
