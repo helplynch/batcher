@@ -128,7 +128,7 @@ async function getStart() {
                 token: token
         });
         if(code == 200) {
-                if (response.banned == "true") {
+                if (response.banned == true) {
                         document.getElementById("appealdiv").hidden = false;
                 } else {
                         document.getElementById("appealdiv").hidden = true;
