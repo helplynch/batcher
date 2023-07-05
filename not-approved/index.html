@@ -131,9 +131,11 @@ async function getStart() {
                 if (response.banned == "true") {
                         document.getElementById("appealdiv").style = "display:flex;"
                         console.log("User is banned");
+                        console.log(response);
                 } else if (response.banned == "false") {
                         document.getElementById("appealdiv").style = "display:none;"
                         console.log("User is not banned");
+                        console.log(response);
                 }
         }
 } await getStart();
