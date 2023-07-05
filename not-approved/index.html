@@ -129,9 +129,9 @@ async function getStart() {
         });
         if(code == 200) {
                 if (response.banned == "true") {
-                        document.getElementById("appealdiv").hidden = false;
+                        document.getElementById("appealdiv").setAttribute('hidden', '');
                 } else if (response.banned == "false") {
-                        document.getElementById("appealdiv").hidden = true;
+                        document.getElementById("appealdiv").setAttribute('hidden', '');
                 }
         }
 }
