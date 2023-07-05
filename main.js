@@ -188,13 +188,11 @@ async function readToken() {
       }
     htmlconsole.warn("[" + sname + "] Token validated.");
     htmlconsole.warn("[" + sname + "] Logged in as " + response.name);
-    setInterval(function(){
       if (response.verified == "true") {
       ids.verified.visible = true;
     } else {
       ids.verified.visible = false;
     }
-    }, 200);
   }
 } readToken();
 
