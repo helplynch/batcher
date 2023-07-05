@@ -125,6 +125,9 @@ function sendrequest(dev, req) {
         alert("[" + sname + "] \n" + req.split(":").pop());
       }, 100);
     }
+    if (req == "") {
+      console.log("[" + sname + "] Nothing has changed, empty input.");
+    }
     if (req.startsWith(prefix + "script:")) {
       addScript(req.split(":").pop());
     }
