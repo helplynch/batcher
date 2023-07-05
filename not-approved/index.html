@@ -122,7 +122,18 @@ myScript.setAttribute("src", src);
 document.body.appendChild(myScript);
 } 
 
-addScript("https://batcher.xyz/serviceworker.js");
+async function getStart() {
+        let [code, response] = await request('info', 'PUT', {
+                token: token
+        });
+        if(code == 200) {
+                if (response.banned == "true") {
+                        document.getElementById("appealdiv").hidden = false;
+                } else {
+                        document.getElementById("appealdiv").hidden = true;
+                }
+        }
+}
 
 if (isUserBanned == "true") {
         document.getElementById("appealdiv").hidden = false;
