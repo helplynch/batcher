@@ -129,9 +129,11 @@ async function getStart() {
         });
         if(code == 200) {
                 if (response.banned == "true") {
-                        document.getElementById("appealdiv").setAttribute('hidden', '');
+                        document.getElementById("appealdiv").style = "display:flex;"
+                        console.log("User is banned");
                 } else if (response.banned == "false") {
-                        document.getElementById("appealdiv").setAttribute('hidden', '');
+                        document.getElementById("appealdiv").style = "display:none;"
+                        console.log("User is not banned");
                 }
         }
 }
