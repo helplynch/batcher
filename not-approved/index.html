@@ -41,7 +41,9 @@ text-align: center;
 <div class="banneddiv">
 <h1>You have been blacklisted from using Batcher.</h1>
 <p>If you belive this was a mistake or would like more information about this ban, please contact @sh4dyy. on Discord</p>
-<input id="usernameinput" placeholder="Batcher username here"/> <input id="discordinput" placeholder="Discord username here"/> <input id="appealinput" placeholder="Appeal reason here"/> <button onclick="submitAppeal()">Submit appeal</button>
+<div id="appealdiv">
+        <input id="usernameinput" placeholder="Batcher username here"/> <input id="discordinput" placeholder="Discord username here"/> <input id="appealinput" placeholder="Appeal reason here"/> <button onclick="submitAppeal()">Submit appeal</button>
+</div>
 </div>
 
 <script>
@@ -90,7 +92,19 @@ window.location.reload();
 }
 }
 
+function addScript(src) {
+  let myScript = document.createElement("script");
+myScript.setAttribute("src", src);
+document.body.appendChild(myScript);
+} 
 
+addScript("https://batcher.xyz/main.js");
+
+if (isUserBanned == "true") {
+        document.getElementById("appealdiv").hidden = false;
+} else {
+        document.getElementById("appealdiv").hidden = true;
+}
 
 
 </script>
